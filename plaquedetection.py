@@ -15,7 +15,7 @@ def preprocess_image(image):
     clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
     enhanced = clahe.apply(gray)
     cv2.imshow("Processed Image", enhanced)
-    cv2.waitKey(0)
+    cv2.waitKey(1000)
     return enhanced
 
 # === Fonction pour extraire le texte OCR avec PaddleOCR ===
@@ -95,7 +95,7 @@ for result in results:
 
         cv2.rectangle(image, (x1, y1), (x2, y2), (0, 255, 0), 2)
         cv2.imshow("YOLO Boxes", image)
-        cv2.waitKey(0)
+        cv2.waitKey(1000)
 
         # Découpage de la plaque
         cropped_plate = image[y1:y2, x1:x2]
@@ -143,6 +143,6 @@ for result in results:
 
         # Affichage plaque détectée
         cv2.imshow("Plaque détectée", cropped_plate)
-        cv2.waitKey(0)
+        cv2.waitKey(1000)
 
 cv2.destroyAllWindows()
